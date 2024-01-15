@@ -20,8 +20,9 @@ int main()
 			continue;
 		}
 
-		char step_choice;
-		step_choice = input[0];
+		char step_choice = '0';
+		if (input.size() == 1)
+			step_choice = input[0];
 
 		switch (step_choice)
 		{
