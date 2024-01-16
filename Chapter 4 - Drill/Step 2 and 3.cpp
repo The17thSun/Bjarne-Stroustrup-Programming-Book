@@ -35,29 +35,29 @@ void compareTwoNumbers(int num1, int num2)
 	printComparison(smaller_v, larger_v);
 }
 
-void step2()
+void step2and3()
 {
-	std::cout << "\n[Step 2]";
-	std::cout << "\nThis program allows you to enter integers in pairs.\n";
-	std::cout << "To exit, you can enter the '|' character;\n";
+	std::cout << "\n[Step 2 & 3]";
+	std::cout << "\nThis program allows you to enter two integers.";
+	std::cout << "\nThe program compares the two values to display the larger and smaller values.";
+	std::cout << "\nTo exit, you can enter the '|' character;\n";
 
 	while (true)
 	{
 		int num1, num2;
 		std::cout << "\nPlease enter two integer numbers : ";
-		while (std::cin >> num1 >> num2)
+		if (std::cin >> num1 >> num2 && std::cin.peek() == '\n')
 		{
 			compareTwoNumbers(num1, num2);
-			break;
 		}
 
-		if (std::cin.fail())
+		else
 		{
 			std::cin.clear();
-			char temp;
-			std::cin >> temp;
-			if (temp == '|')
+			if (std::cin.peek() == '|')
 			{
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cout << "\nExiting step 2/3.\n\n";
 				break;
 			}
 			else
@@ -67,5 +67,4 @@ void step2()
 			}
 		}
 	}
-	std::cout << "\nExiting step 2.\n\n";
 }
